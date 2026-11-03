@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME-ZONE | Thế Giới Máy Chơi Game & Phụ Kiện Gaming Cao Cấp</title>
+    <meta name="description" content="Chuyên máy chơi game PC Handheld đồ họa cao (ROG Ally X, Steam Deck OLED, Legion Go), Nintendo Switch, máy game retro tuổi thơ và phụ kiện chính hãng tại GAME-ZONE.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts: Orbitron & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0B0E14',
+                        cardBg: '#131822',
+                        cardBorder: '#1F293D',
+                        neonBlue: '#00E5FF',
+                        accentBlue: '#0088FF',
+                        hotPink: '#FF0055',
+                        cyberYellow: '#FFD700',
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slight': 'bounceSlight 2s infinite',
+                    },
+                    keyframes: {
+                        bounceSlight: {
+                            '0%, 100%': { transform: 'translateY(-3%)' },
+                            '50%': { transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-text {
+            text-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
+        }
+        .glow-text-pink {
+            text-shadow: 0 0 12px rgba(255, 0, 85, 0.6);
+        }
+        .glow-box {
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.12);
+        }
+        .glow-box:hover {
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.35);
+        }
+        .glow-border {
+            border-color: rgba(0, 229, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0E14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F293D;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00E5FF;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-200 font-sans antialiased min-h-screen flex flex-col selection:bg-neonBlue selection:text-black relative pb-20 md:pb-0">
+
+    <!-- TOP ANNOUNCEMENT BANNER -->
+    <div class="bg-gradient-to-r from-accentBlue via-purple-700 to-hotPink text-white text-xs font-semibold py-2 px-4 text-center tracking-wide">
+        <span class="inline-flex items-center gap-2">
+            <span class="bg-black/40 px-2 py-0.5 rounded text-[11px] font-orbitron font-bold uppercase text-neonBlue">⚡ FLASH DEAL</span>
+            Tặng ngay Thẻ nhớ 512GB & Bao chống sốc cao cấp cho đơn PC Handheld hôm nay!
+            <a href="#uu-dai" class="underline font-bold hover:text-black transition-colors ml-1">Nhận ưu đãi ngay &rarr;</a>
+        </span>
+    </div>
+
+    <!-- NAV BAR -->
+    <header class="sticky top-0 z-40 bg-darkBg/95 backdrop-blur-md border-b border-cardBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <!-- Logo -->
+            <a href="#trang-chu" class="flex items-center gap-3 group shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-neonBlue to-accentBlue flex items-center justify-center text-black font-extrabold shadow-[0_0_15px_rgba(0,229,255,0.5)] group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-gamepad text-xl"></i>
+                </div>
+                <span class="font-orbitron font-extrabold text-2xl tracking-wider text-white">GAME<span class="text-neonBlue glow-text">-ZONE</span></span>
+            </a>
+
+            <!-- Search Bar (Desktop) -->
+            <div class="hidden lg:flex items-center flex-1 max-w-md mx-6 relative">
+                <input type="text" id="searchInput" oninput="searchProducts(this.value)" placeholder="Tìm kiếm máy game, phụ kiện, chip..." class="w-full bg-cardBg border border-cardBorder rounded-xl pl-10 pr-4 py-2 text-xs text-white focus:outline-none focus:border-neonBlue transition-colors">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 text-gray-400 text-xs"></i>
+                <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 text-gray-400 hover:text-white text-xs">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-6 font-semibold text-xs tracking-wider">
+                <a href="#trang-chu" class="hover:text-neonBlue transition-colors py-2 border-b-2 border-transparent hover:border-neonBlue">TRANG CHỦ</a>
+                <a href="#danh-muc" class="hover:text-neonBlue transition-colors py-2 border-b-2 border-transparent hover:border-neonBlue">SẢN PHẨM</a>
+                <a href="#uu-dai" class="hover:text-neonBlue transition-colors py-2 border-b-2 border-transparent hover:border-neonBlue flex items-center gap-1 text-hotPink font-bold">
+                    <i class="fa-solid fa-fire"></i> FLASH SALE
+                </a>
+                <a href="#so-sanh" class="hover:text-neonBlue transition-colors py-2 border-b-2 border-transparent hover:border-neonBlue">VÌ SAO CHỌN GZ</a>
+                <a href="#danh-gia" class="hover:text-neonBlue transition-colors py-2 border-b-2 border-transparent hover:border-neonBlue">ĐÁNH GIÁ</a>
+                <a href="#lien-he" class="hover:text-neonBlue transition-colors py-2 border-b-2 border-transparent hover:border-neonBlue">LIÊN HỆ</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3 shrink-0">
+                <!-- Cart Button -->
+                <button id="cartBtn" onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-all text-gray-300 hover:text-neonBlue flex items-center gap-2 group">
+                    <i class="fa-solid fa-cart-shopping text-base group-hover:scale-110 transition-transform"></i>
+                    <span class="hidden sm:inline text-xs font-semibold">Giỏ hàng</span>
+                    <span id="cartCount" class="bg-neonBlue text-black font-orbitron font-bold text-xs w-5 h-5 rounded-full flex items-center justify-center shadow-[0_0_8px_rgba(0,229,255,0.8)]">0</span>
+                </button>
+
+                <!-- CTA Button -->
+                <a href="#uu-dai" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase tracking-wider hover:opacity-90 hover:shadow-[0_0_15px_rgba(0,229,255,0.5)] transition-all">
+                    SĂN DEAL NGAY
+                </a>
+
+                <!-- Mobile Menu Hamburger Button -->
+                <button onclick="toggleMobileNav()" class="md:hidden p-2.5 rounded-xl bg-cardBg border border-cardBorder text-gray-300 hover:text-neonBlue focus:outline-none">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobileNavMenu" class="hidden md:hidden bg-cardBg/98 border-b border-cardBorder px-4 py-4 space-y-3 font-semibold text-sm">
+            <div class="relative mb-3">
+                <input type="text" oninput="searchProducts(this.value)" placeholder="Tìm máy game, phụ kiện..." class="w-full bg-darkBg border border-cardBorder rounded-xl pl-10 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-neonBlue">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-400 text-xs"></i>
+            </div>
+            <a href="#trang-chu" onclick="toggleMobileNav()" class="block py-2 text-gray-300 hover:text-neonBlue border-b border-cardBorder/50">Trang Chủ</a>
+            <a href="#danh-muc" onclick="toggleMobileNav()" class="block py-2 text-gray-300 hover:text-neonBlue border-b border-cardBorder/50">Danh Mục Sản Phẩm</a>
+            <a href="#uu-dai" onclick="toggleMobileNav()" class="block py-2 text-hotPink font-bold border-b border-cardBorder/50">🔥 Giờ Vàng Flash Sale</a>
+            <a href="#so-sanh" onclick="toggleMobileNav()" class="block py-2 text-gray-300 hover:text-neonBlue border-b border-cardBorder/50">Vì Sao Chọn GAME-ZONE</a>
+            <a href="#danh-gia" onclick="toggleMobileNav()" class="block py-2 text-gray-300 hover:text-neonBlue border-b border-cardBorder/50">Đánh Giá Khách Hàng</a>
+            <a href="#lien-he" onclick="toggleMobileNav()" class="block py-2 text-gray-300 hover:text-neonBlue">Liên Hệ & Showroom</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (TRANG CHỦ - ATTENTION & UVP) -->
+    <section id="trang-chu" class="relative py-16 lg:py-24 overflow-hidden border-b border-cardBorder bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cardBg via-darkBg to-darkBg">
+        <!-- Glow Orbs in Background -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-neonBlue/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -right-32 w-96 h-96 bg-accentBlue/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neonBlue/10 border border-neonBlue/30 text-neonBlue text-xs font-semibold uppercase tracking-widest shadow-[0_0_12px_rgba(0,229,255,0.2)]">
+                        <i class="fa-solid fa-fire-flame-curved text-hotPink animate-bounce-slight"></i> HỆ THỐNG MÁY GAME HANDHELD SỐ 1 VIỆT NAM
+                    </div>
+                    <h1 class="font-orbitron text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
+                        THẾ GIỚI MÁY GAME <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-accentBlue to-hotPink glow-text">&amp; PHỤ KIỆN VỚI GAME-ZONE</span>
+                    </h1>
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                        Chuyên phân phối các dòng máy chơi game PC Handheld đồ họa đỉnh cao (<span class="text-neonBlue font-semibold">ROG Ally X, Steam Deck OLED, Legion Go</span>), Nintendo Switch chính hãng và máy retro tuổi thơ cùng trọn bộ giải pháp phụ kiện cao cấp.
+                    </p>
+
+                    <!-- Trust Stats Bar -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 py-2 border-y border-cardBorder/70 text-xs">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            <span class="text-white font-bold">4.9/5</span>
+                            <span class="text-gray-400">(2.800+ Game thủ)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                            <span class="text-white font-bold">100% Chính Hãng</span>
+                            <span class="text-gray-400">Bảo hành 12 tháng</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-box-open text-neonBlue"></i>
+                            <span class="text-white font-bold">15.000+</span>
+                            <span class="text-gray-400">Đơn hàng thành công</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#danh-muc" class="px-8 py-4 rounded-xl bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-sm tracking-wider uppercase hover:shadow-[0_0_25px_rgba(0,229,255,0.5)] hover:scale-105 transition-all flex items-center gap-2">
+                            <span>Khám Phá Cửa Hàng</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#lien-he" class="px-8 py-4 rounded-xl bg-cardBg border border-cardBorder hover:border-neonBlue text-white font-orbitron font-bold text-sm tracking-wider uppercase hover:bg-neonBlue/10 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-headset text-neonBlue"></i>
+                            <span>Tư Vấn Trực Tiếp 24/7</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Feature Highlights Cards (4 Benefits) -->
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <div class="p-6 rounded-2xl bg-cardBg/90 border border-cardBorder glow-box hover:-translate-y-1 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1">Bảo Hành 12 Tháng</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">Cam kết 1 đổi 1 trong 30 ngày nếu phát sinh lỗi từ nhà sản xuất.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-cardBg/90 border border-cardBorder glow-box hover:-translate-y-1 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1">Giao Hỏa Tốc 2 Giờ</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">Giao tận tay nội thành Hà Nội &amp; TP.HCM. Đồng kiểm trước khi trả tiền.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-cardBg/90 border border-cardBorder glow-box hover:-translate-y-1 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1">Trả Góp 0% Lãi Suất</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">Hỗ trợ trả góp linh hoạt qua thẻ tín dụng và CCCD duyệt hồ sơ chỉ 5 phút.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-cardBg/90 border border-cardBorder glow-box hover:-translate-y-1 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1">Cài Game VIP Trọn Đời</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">Miễn phí cài đặt game bản quyền AAA, việt hóa, tối ưu pin &amp; phần mềm.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFER & URGENCY SECTION (FLASH SALE & COUNTDOWN TIMER - FOMO) -->
+    <section id="uu-dai" class="py-12 bg-gradient-to-b from-cardBg/80 to-darkBg border-b border-cardBorder relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-cardBg via-cardBg to-[#171d2b] border border-neonBlue/40 glow-border">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+                    <!-- Flash Sale Title & Badges -->
+                    <div class="space-y-2 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-hotPink/20 text-hotPink text-xs font-bold font-orbitron uppercase tracking-wider animate-pulse">
+                            <i class="fa-solid fa-bolt"></i> GIỜ VÀNG GIÁ SỐC
+                        </div>
+                        <h2 class="font-orbitron text-2xl sm:text-3xl font-black text-white">
+                            SIÊU KHUYẾN MÃI TUẦN NÀY - <span class="text-neonBlue glow-text">GIẢM ĐẾN 25%</span>
+                        </h2>
+                        <p class="text-gray-400 text-xs sm:text-sm">
+                            Áp dụng cho khách hàng đặt mua trực tuyến hôm nay. Tặng kèm gói bảo hành vàng trị giá <span class="text-yellow-400 font-bold">1.200.000đ</span>.
+                        </p>
+                    </div>
+
+                    <!-- Countdown Timer -->
+                    <div class="flex items-center gap-3">
+                        <div class="flex flex-col items-center">
+                            <div id="timerHours" class="w-14 sm:w-16 h-14 sm:h-16 rounded-xl bg-darkBg border border-neonBlue flex items-center justify-center font-orbitron font-black text-2xl sm:text-3xl text-neonBlue glow-text">08</div>
+                            <span class="text-[10px] uppercase tracking-wider text-gray-400 mt-1 font-semibold">Giờ</span>
+                        </div>
+                        <span class="font-orbitron font-bold text-2xl text-neonBlue pb-4">:</span>
+                        <div class="flex flex-col items-center">
+                            <div id="timerMinutes" class="w-14 sm:w-16 h-14 sm:h-16 rounded-xl bg-darkBg border border-neonBlue flex items-center justify-center font-orbitron font-black text-2xl sm:text-3xl text-neonBlue glow-text">42</div>
+                            <span class="text-[10px] uppercase tracking-wider text-gray-400 mt-1 font-semibold">Phút</span>
+                        </div>
+                        <span class="font-orbitron font-bold text-2xl text-neonBlue pb-4">:</span>
+                        <div class="flex flex-col items-center">
+                            <div id="timerSeconds" class="w-14 sm:w-16 h-14 sm:h-16 rounded-xl bg-darkBg border border-hotPink flex items-center justify-center font-orbitron font-black text-2xl sm:text-3xl text-hotPink glow-text-pink animate-pulse">19</div>
+                            <span class="text-[10px] uppercase tracking-wider text-gray-400 mt-1 font-semibold">Giây</span>
+                        </div>
+                    </div>
+
+                    <!-- Flash Sale CTA -->
+                    <div class="shrink-0 w-full lg:w-auto text-center">
+                        <a href="#danh-muc" class="inline-block w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-hotPink to-purple-600 text-white font-orbitron font-bold text-xs uppercase tracking-widest hover:opacity-90 hover:scale-105 shadow-[0_0_20px_rgba(255,0,85,0.4)] transition-all">
+                            SĂN DEAL NGAY
+                        </a>
+                        <div class="text-[11px] text-gray-400 mt-2">
+                            <i class="fa-solid fa-fire text-hotPink mr-1"></i> Đã bán <strong>78/100</strong> suất flash deal
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voucher Codes Strip -->
+                <div class="mt-6 pt-5 border-t border-cardBorder grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div onclick="copyVoucher('GAMEZONE500')" class="cursor-pointer p-2.5 rounded-xl bg-darkBg/60 border border-cardBorder hover:border-neonBlue flex items-center justify-between group transition-all">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-ticket text-neonBlue"></i>
+                            <div>
+                                <span class="font-orbitron font-bold text-xs text-white">GAMEZONE500</span>
+                                <p class="text-[10px] text-gray-400">Giảm 500k cho máy PC Handheld</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-neonBlue font-semibold group-hover:underline">Sao chép</span>
+                    </div>
+
+                    <div onclick="copyVoucher('FREESHIP2H')" class="cursor-pointer p-2.5 rounded-xl bg-darkBg/60 border border-cardBorder hover:border-neonBlue flex items-center justify-between group transition-all">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-truck text-emerald-400"></i>
+                            <div>
+                                <span class="font-orbitron font-bold text-xs text-white">FREESHIP2H</span>
+                                <p class="text-[10px] text-gray-400">Miễn phí giao hàng hỏa tốc toàn quốc</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-neonBlue font-semibold group-hover:underline">Sao chép</span>
+                    </div>
+
+                    <div onclick="copyVoucher('RETROVIP')" class="cursor-pointer p-2.5 rounded-xl bg-darkBg/60 border border-cardBorder hover:border-neonBlue flex items-center justify-between group transition-all">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-gift text-yellow-400"></i>
+                            <div>
+                                <span class="font-orbitron font-bold text-xs text-white">RETROVIP</span>
+                                <p class="text-[10px] text-gray-400">Tặng thẻ nhớ 10.000 game tuổi thơ</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-neonBlue font-semibold group-hover:underline">Sao chép</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATALOG SECTION (DANH MỤC SẢN PHẨM & LỢI ÍCH) -->
+    <section id="danh-muc" class="py-20 border-b border-cardBorder relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-orbitron font-bold uppercase tracking-widest text-neonBlue bg-neonBlue/10 px-3.5 py-1.5 rounded-full border border-neonBlue/20">
+                    Kho Thiết Bị Gaming Đỉnh Cao
+                </span>
+                <h2 class="font-orbitron text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider mt-3 mb-3">
+                    DANH MỤC <span class="text-neonBlue glow-text">SẢN PHẨM</span>
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base">
+                    Lựa chọn các thiết bị chơi game đỉnh cao và phụ kiện tương thích chính hãng 100% với giá tốt nhất thị trường.
+                </p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-2.5 mb-10">
+                <button onclick="filterProducts('all', this)" class="filter-btn active px-5 py-2.5 rounded-xl bg-cardBg border border-neonBlue text-neonBlue font-orbitron font-bold text-xs uppercase tracking-wider shadow-[0_0_12px_rgba(0,229,255,0.25)] transition-all">
+                    Tất Cả (<span id="allCount">10</span>)
+                </button>
+                <button onclick="filterProducts('pc', this)" class="filter-btn px-5 py-2.5 rounded-xl bg-cardBg border border-cardBorder text-gray-400 hover:text-white hover:border-gray-500 font-orbitron font-semibold text-xs uppercase tracking-wider transition-all">
+                    PC Handheld (Đồ Họa Cao)
+                </button>
+                <button onclick="filterProducts('console', this)" class="filter-btn px-5 py-2.5 rounded-xl bg-cardBg border border-cardBorder text-gray-400 hover:text-white hover:border-gray-500 font-orbitron font-semibold text-xs uppercase tracking-wider transition-all">
+                    Nintendo &amp; Retro Game
+                </button>
+                <button onclick="filterProducts('accessory', this)" class="filter-btn px-5 py-2.5 rounded-xl bg-cardBg border border-cardBorder text-gray-400 hover:text-white hover:border-gray-500 font-orbitron font-semibold text-xs uppercase tracking-wider transition-all">
+                    Phụ Kiện Gaming
+                </button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="productGrid">
+                
+                <!-- 1. ASUS ROG Ally X -->
+                <div class="product-item pc p-5 rounded-2xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-all flex flex-col justify-between group relative overflow-hidden" data-name="asus rog ally x" data-price="23990000">
+                    <span class="absolute top-3 right-3 text-[10px] font-bold font-orbitron uppercase tracking-widest text-hotPink bg-hotPink/10 border border-hotPink/30 px-2 py-0.5 rounded-md">
+                        HOT DEAL -10%
+                    </span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neonBlue bg-neonBlue/10 px-2.5 py-1 rounded-md">PC Handheld</span>
+                        <div class="h-48 my-4 flex items-center justify-center overflow-hidden rounded-xl bg-darkBg/60 p-3 relative cursor-pointer" onclick="quickView('ASUS ROG Ally X', '23.990.000đ', '26.990.000đ', 'OIP.webp', 'AMD Ryzen Z1 Extreme, RAM 24GB LPDDR5X, SSD 1TB, Pin 80Wh cực trâu.', 'PC Handheld đỉnh nhất 2026')">
+                            <img src="OIP.webp" alt="ASUS ROG Ally X" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%23131822\'/><text x=\'50%\' y=\'50%\' fill=\'%2300E5FF\' font-family=\'sans-serif\' font-size=\'14\' text-anchor=\'middle\'>ROG Ally X</text></svg>'">
+                        </div>
+                        <div class="flex items-center gap-1 text-xs text-yellow-400 mb-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 text-[11px] ml-1">(128 đánh giá)</span>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1 group-hover:text-neonBlue transition-colors">ASUS ROG Ally X</h3>
+                        <p class="text-xs text-gray-400 mb-3 leading-relaxed">AMD Ryzen Z1 Extreme, RAM 24GB LPDDR5X, SSD 1TB NVMe, Pin 80Wh cực trâu chiến mọi game AAA.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="font-orbitron font-bold text-neonBlue text-lg">23.990.000đ</span>
+                            <span class="text-xs text-gray-500 line-through">26.990.000đ</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-cardBorder">
+                            <button onclick="addToCart('ASUS ROG Ally X', 23990000, 'OIP.webp')" class="px-2.5 py-2 rounded-lg bg-neonBlue/10 hover:bg-neonBlue text-neonBlue hover:text-black font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm giỏ
+                            </button>
+                            <button onclick="openBuyModal('ASUS ROG Ally X', '23.990.000đ', 'OIP.webp')" class="px-2.5 py-2 rounded-lg bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase hover:opacity-90 transition-opacity flex items-center justify-center">
+                                Mua ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Valve Steam Deck OLED -->
+                <div class="product-item pc p-5 rounded-2xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-all flex flex-col justify-between group relative overflow-hidden" data-name="valve steam deck oled" data-price="17890000">
+                    <span class="absolute top-3 right-3 text-[10px] font-bold font-orbitron uppercase tracking-widest text-emerald-400 bg-emerald-400/10 border border-emerald-400/30 px-2 py-0.5 rounded-md">
+                        BEST SELLER
+                    </span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neonBlue bg-neonBlue/10 px-2.5 py-1 rounded-md">PC Handheld</span>
+                        <div class="h-48 my-4 flex items-center justify-center overflow-hidden rounded-xl bg-darkBg/60 p-3 relative cursor-pointer" onclick="quickView('Valve Steam Deck OLED', '17.890.000đ', '19.990.000đ', 'OIP_(1).webp', 'Màn hình HDR OLED 90Hz rực rỡ, SteamOS mượt mà, Pin cải tiến 50Wh.', 'Trải nghiệm SteamOS hoàn hảo')">
+                            <img src="OIP_(1).webp" alt="Valve Steam Deck OLED" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300" onerror="this.src='OIP (1).webp'">
+                        </div>
+                        <div class="flex items-center gap-1 text-xs text-yellow-400 mb-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 text-[11px] ml-1">(245 đánh giá)</span>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1 group-hover:text-neonBlue transition-colors">Valve Steam Deck OLED</h3>
+                        <p class="text-xs text-gray-400 mb-3 leading-relaxed">Màn hình HDR OLED 90Hz rực rỡ, SteamOS mượt mà, Pin cải tiến, tản nhiệt êm ái.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="font-orbitron font-bold text-neonBlue text-lg">17.890.000đ</span>
+                            <span class="text-xs text-gray-500 line-through">19.990.000đ</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-cardBorder">
+                            <button onclick="addToCart('Valve Steam Deck OLED', 17890000, 'OIP_(1).webp')" class="px-2.5 py-2 rounded-lg bg-neonBlue/10 hover:bg-neonBlue text-neonBlue hover:text-black font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm giỏ
+                            </button>
+                            <button onclick="openBuyModal('Valve Steam Deck OLED', '17.890.000đ', 'OIP_(1).webp')" class="px-2.5 py-2 rounded-lg bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase hover:opacity-90 transition-opacity flex items-center justify-center">
+                                Mua ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Lenovo Legion Go -->
+                <div class="product-item pc p-5 rounded-2xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-all flex flex-col justify-between group relative overflow-hidden" data-name="lenovo legion go" data-price="18990000">
+                    <span class="absolute top-3 right-3 text-[10px] font-bold font-orbitron uppercase tracking-widest text-accentBlue bg-accentBlue/10 border border-accentBlue/30 px-2 py-0.5 rounded-md">
+                        MÀN 144HZ
+                    </span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neonBlue bg-neonBlue/10 px-2.5 py-1 rounded-md">PC Handheld</span>
+                        <div class="h-48 my-4 flex items-center justify-center overflow-hidden rounded-xl bg-darkBg/60 p-3 relative cursor-pointer" onclick="quickView('Lenovo Legion Go', '18.990.000đ', '21.500.000đ', 'th.webp', 'Màn hình 8.8 QHD+ 144Hz tháo rời tay cầm TrueStrike độc đáo tích hợp chế độ FPS.', 'Chiến game màn hình khủng')">
+                            <img src="th.webp" alt="Lenovo Legion Go" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%23131822\'/><text x=\'50%\' y=\'50%\' fill=\'%2300E5FF\' font-family=\'sans-serif\' font-size=\'14\' text-anchor=\'middle\'>Legion Go</text></svg>'">
+                        </div>
+                        <div class="flex items-center gap-1 text-xs text-yellow-400 mb-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                            <span class="text-gray-400 text-[11px] ml-1">(96 đánh giá)</span>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1 group-hover:text-neonBlue transition-colors">Lenovo Legion Go</h3>
+                        <p class="text-xs text-gray-400 mb-3 leading-relaxed">Màn hình 8.8" QHD+ 144Hz tháo rời tay cầm TrueStrike độc đáo, tích hợp chuột FPS tiện dụng.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="font-orbitron font-bold text-neonBlue text-lg">18.990.000đ</span>
+                            <span class="text-xs text-gray-500 line-through">21.500.000đ</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-cardBorder">
+                            <button onclick="addToCart('Lenovo Legion Go', 18990000, 'th.webp')" class="px-2.5 py-2 rounded-lg bg-neonBlue/10 hover:bg-neonBlue text-neonBlue hover:text-black font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm giỏ
+                            </button>
+                            <button onclick="openBuyModal('Lenovo Legion Go', '18.990.000đ', 'th.webp')" class="px-2.5 py-2 rounded-lg bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase hover:opacity-90 transition-opacity flex items-center justify-center">
+                                Mua ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Nintendo Switch OLED -->
+                <div class="product-item console p-5 rounded-2xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-all flex flex-col justify-between group relative overflow-hidden" data-name="nintendo switch oled" data-price="7490000">
+                    <span class="absolute top-3 right-3 text-[10px] font-bold font-orbitron uppercase tracking-widest text-emerald-400 bg-emerald-400/10 border border-emerald-400/30 px-2 py-0.5 rounded-md">
+                        CHÍNH HÃNG
+                    </span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-md">Console</span>
+                        <div class="h-48 my-4 flex items-center justify-center overflow-hidden rounded-xl bg-darkBg/60 p-3 relative cursor-pointer" onclick="quickView('Nintendo Switch OLED', '7.490.000đ', '8.490.000đ', 'R.jpg', 'Màn hình OLED 7 inch nét căng, chân đế rộng linh hoạt, bộ nhớ trong 64GB, chơi mọi nơi.', 'Độc quyền tựa game Nintendo kinh điển')">
+                            <img src="R.jpg" alt="Nintendo Switch OLED" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%23131822\'/><text x=\'50%\' y=\'50%\' fill=\'%2300E5FF\' font-family=\'sans-serif\' font-size=\'14\' text-anchor=\'middle\'>Nintendo Switch</text></svg>'">
+                        </div>
+                        <div class="flex items-center gap-1 text-xs text-yellow-400 mb-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 text-[11px] ml-1">(310 đánh giá)</span>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1 group-hover:text-neonBlue transition-colors">Nintendo Switch OLED</h3>
+                        <p class="text-xs text-gray-400 mb-3 leading-relaxed">Màn hình OLED 7 inch nét căng, chân đế rộng linh hoạt, bộ nhớ 64GB, âm thanh cải tiến sống động.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="font-orbitron font-bold text-neonBlue text-lg">7.490.000đ</span>
+                            <span class="text-xs text-gray-500 line-through">8.490.000đ</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-cardBorder">
+                            <button onclick="addToCart('Nintendo Switch OLED', 7490000, 'R.jpg')" class="px-2.5 py-2 rounded-lg bg-neonBlue/10 hover:bg-neonBlue text-neonBlue hover:text-black font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm giỏ
+                            </button>
+                            <button onclick="openBuyModal('Nintendo Switch OLED', '7.490.000đ', 'R.jpg')" class="px-2.5 py-2 rounded-lg bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase hover:opacity-90 transition-opacity flex items-center justify-center">
+                                Mua ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Nintendo Switch Lite / V2 -->
+                <div class="product-item console p-5 rounded-2xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-all flex flex-col justify-between group relative overflow-hidden" data-name="nintendo switch lite v2" data-price="4290000">
+                    <span class="absolute top-3 right-3 text-[10px] font-bold font-orbitron uppercase tracking-widest text-cyan-400 bg-cyan-400/10 border border-cyan-400/30 px-2 py-0.5 rounded-md">
+                        NHỎ GỌN
+                    </span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-md">Console</span>
+                        <div class="h-48 my-4 flex items-center justify-center overflow-hidden rounded-xl bg-darkBg/60 p-3 relative cursor-pointer" onclick="quickView('Nintendo Switch Lite / V2', '4.290.000đ', '4.990.000đ', 'R.jpg', 'Phiên bản Lite nhỏ gọn thuần cầm tay & V2 cải tiến thời lượng pin vượt trội.', 'Dễ dàng bỏ túi du lịch')">
+                            <img src="R.jpg" alt="Nintendo Switch Lite & V2" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%23131822\'/><text x=\'50%\' y=\'50%\' fill=\'%2300E5FF\' font-family=\'sans-serif\' font-size=\'14\' text-anchor=\'middle\'>Switch Lite</text></svg>'">
+                        </div>
+                        <div class="flex items-center gap-1 text-xs text-yellow-400 mb-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 text-[11px] ml-1">(188 đánh giá)</span>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1 group-hover:text-neonBlue transition-colors">Nintendo Switch Lite / V2</h3>
+                        <p class="text-xs text-gray-400 mb-3 leading-relaxed">Phiên bản Lite nhỏ gọn thuần cầm tay &amp; V2 cải tiến pin, trọng lượng nhẹ nhàng dễ mang theo.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="font-orbitron font-bold text-neonBlue text-lg">4.290.000đ</span>
+                            <span class="text-xs text-gray-500 line-through">4.990.000đ</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-cardBorder">
+                            <button onclick="addToCart('Nintendo Switch Lite/V2', 4290000, 'R.jpg')" class="px-2.5 py-2 rounded-lg bg-neonBlue/10 hover:bg-neonBlue text-neonBlue hover:text-black font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm giỏ
+                            </button>
+                            <button onclick="openBuyModal('Nintendo Switch Lite/V2', '4.290.000đ', 'R.jpg')" class="px-2.5 py-2 rounded-lg bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase hover:opacity-90 transition-opacity flex items-center justify-center">
+                                Mua ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Miyoo Mini Plus -->
+                <div class="product-item console p-5 rounded-2xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-all flex flex-col justify-between group relative overflow-hidden" data-name="miyoo mini plus powkiddy retro" data-price="1250000">
+                    <span class="absolute top-3 right-3 text-[10px] font-bold font-orbitron uppercase tracking-widest text-amber-400 bg-amber-400/10 border border-amber-400/30 px-2 py-0.5 rounded-md">
+                        10.000+ GAME
+                    </span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-md">Retro Game</span>
+                        <div class="h-48 my-4 flex items-center justify-center overflow-hidden rounded-xl bg-darkBg/60 p-3 relative cursor-pointer" onclick="quickView('Miyoo Mini Plus / Powkiddy', '1.250.000đ', '1.550.000đ', 'miyoo-mini-plus-viet-nam_6b823d3d4d684a6f8d7d39dd5d5abcb7_master.webp', 'Màn IPS 3.5 sắc nét, tích hợp Wi-Fi chiến multiplayer, cài sẵn 10.000+ game PS1, GBA, SNES tuổi thơ.', 'Vé về tuổi thơ cực đã')">
+                            <img src="miyoo-mini-plus-viet-nam_6b823d3d4d684a6f8d7d39dd5d5abcb7_master.webp" alt="Miyoo Mini Plus" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%23131822\'/><text x=\'50%\' y=\'50%\' fill=\'%23FFD700\' font-family=\'sans-serif\' font-size=\'14\' text-anchor=\'middle\'>Miyoo Mini Plus</text></svg>'">
+                        </div>
+                        <div class="flex items-center gap-1 text-xs text-yellow-400 mb-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 text-[11px] ml-1">(420 đánh giá)</span>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1 group-hover:text-neonBlue transition-colors">Miyoo Mini Plus / Powkiddy</h3>
+                        <p class="text-xs text-gray-400 mb-3 leading-relaxed">Màn IPS 3.5", tích hợp Wi-Fi, sẵn 10.000+ game tuổi thơ (PS1, GBA, SNES, NDS) chơi không cần mạng.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="font-orbitron font-bold text-neonBlue text-lg">1.250.000đ</span>
+                            <span class="text-xs text-gray-500 line-through">1.550.000đ</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-cardBorder">
+                            <button onclick="addToCart('Miyoo Mini Plus', 1250000, 'miyoo-mini-plus-viet-nam_6b823d3d4d684a6f8d7d39dd5d5abcb7_master.webp')" class="px-2.5 py-2 rounded-lg bg-neonBlue/10 hover:bg-neonBlue text-neonBlue hover:text-black font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm giỏ
+                            </button>
+                            <button onclick="openBuyModal('Miyoo Mini Plus', '1.250.000đ', 'miyoo-mini-plus-viet-nam_6b823d3d4d684a6f8d7d39dd5d5abcb7_master.webp')" class="px-2.5 py-2 rounded-lg bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase hover:opacity-90 transition-opacity flex items-center justify-center">
+                                Mua ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Dock Sạc Đa Năng 6-in-1 -->
+                <div class="product-item accessory p-5 rounded-2xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-all flex flex-col justify-between group relative overflow-hidden" data-name="dock sac da nang 6 in 1" data-price="890000">
+                    <span class="absolute top-3 right-3 text-[10px] font-bold font-orbitron uppercase tracking-widest text-purple-400 bg-purple-400/10 border border-purple-400/30 px-2 py-0.5 rounded-md">
+                        PHỤ KIỆN HOT
+                    </span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-purple-400 bg-purple-400/10 px-2.5 py-1 rounded-md">Phụ Kiện</span>
+                        <div class="h-48 my-4 flex items-center justify-center overflow-hidden rounded-xl bg-darkBg/60 p-3 relative cursor-pointer" onclick="quickView('Dock Sạc Đa Năng 6-in-1', '890.000đ', '1.190.000đ', 'OIP_(2).webp', 'Xuất hình 4K60Hz HDMI lên TV/Màn hình, cổng LAN Gigabit 1000Mbps, Sạc nhanh PD 100W.', 'Tương thích ROG Ally, Steam Deck, Legion Go')">
+                            <img src="OIP_(2).webp" alt="Dock sạc đa năng 6-in-1" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300" onerror="this.src='OIP (2).webp'">
+                        </div>
+                        <div class="flex items-center gap-1 text-xs text-yellow-400 mb-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 text-[11px] ml-1">(154 đánh giá)</span>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1 group-hover:text-neonBlue transition-colors">Dock Sạc Đa Năng 6-in-1</h3>
+                        <p class="text-xs text-gray-400 mb-3 leading-relaxed">Xuất hình 4K60Hz HDMI siêu nét, LAN Gigabit 1000Mbps mượt mà, Sạc nhanh chuẩn PD 100W.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="font-orbitron font-bold text-neonBlue text-lg">890.000đ</span>
+                            <span class="text-xs text-gray-500 line-through">1.190.000đ</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-cardBorder">
+                            <button onclick="addToCart('Dock sạc đa năng 6-in-1', 890000, 'OIP_(2).webp')" class="px-2.5 py-2 rounded-lg bg-neonBlue/10 hover:bg-neonBlue text-neonBlue hover:text-black font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm giỏ
+                            </button>
+                            <button onclick="openBuyModal('Dock sạc đa năng 6-in-1', '890.000đ', 'OIP_(2).webp')" class="px-2.5 py-2 rounded-lg bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase hover:opacity-90 transition-opacity flex items-center justify-center">
+                                Mua ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Thẻ Nhớ SanDisk / Samsung -->
+                <div class="product-item accessory p-5 rounded-2xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-all flex flex-col justify-between group relative overflow-hidden" data-name="the nho microsd sandisk samsung 512gb 1tb" data-price="650000">
+                    <span class="absolute top-3 right-3 text-[10px] font-bold font-orbitron uppercase tracking-widest text-purple-400 bg-purple-400/10 border border-purple-400/30 px-2 py-0.5 rounded-md">
+                        TỐC ĐỘ 190MB/S
+                    </span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-purple-400 bg-purple-400/10 px-2.5 py-1 rounded-md">Phụ Kiện</span>
+                        <div class="h-48 my-4 flex items-center justify-center overflow-hidden rounded-xl bg-darkBg/60 p-3 relative cursor-pointer" onclick="quickView('Thẻ Nhớ SanDisk / Samsung', '650.000đ', '890.000đ', 'OIP_(3).webp', 'Dung lượng 256GB/512GB/1TB, chuẩn U3 A2 V30 tải game tức thì, bảo hành 5 năm 1 đổi 1.', 'Lựa chọn hàng đầu cho game thủ')">
+                            <img src="OIP_(3).webp" alt="Thẻ nhớ SanDisk/Samsung" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300" onerror="this.src='OIP (3).webp'">
+                        </div>
+                        <div class="flex items-center gap-1 text-xs text-yellow-400 mb-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 text-[11px] ml-1">(278 đánh giá)</span>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1 group-hover:text-neonBlue transition-colors">Thẻ Nhớ SanDisk / Samsung</h3>
+                        <p class="text-xs text-gray-400 mb-3 leading-relaxed">Dung lượng 256GB - 1TB tốc độ đọc 190MB/s chuẩn U3 A2 V30 load game siêu tốc không độ trễ.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="font-orbitron font-bold text-neonBlue text-lg">650.000đ</span>
+                            <span class="text-xs text-gray-500 line-through">890.000đ</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-cardBorder">
+                            <button onclick="addToCart('Thẻ nhớ MicroSD SanDisk/Samsung', 650000, 'OIP_(3).webp')" class="px-2.5 py-2 rounded-lg bg-neonBlue/10 hover:bg-neonBlue text-neonBlue hover:text-black font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm giỏ
+                            </button>
+                            <button onclick="openBuyModal('Thẻ nhớ MicroSD SanDisk/Samsung', '650.000đ', 'OIP_(3).webp')" class="px-2.5 py-2 rounded-lg bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase hover:opacity-90 transition-opacity flex items-center justify-center">
+                                Mua ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Tay Cầm 8BitDo / DualSense -->
+                <div class="product-item accessory p-5 rounded-2xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-all flex flex-col justify-between group relative overflow-hidden" data-name="tay cam game 8bitdo dualsense bluetooth" data-price="1190000">
+                    <span class="absolute top-3 right-3 text-[10px] font-bold font-orbitron uppercase tracking-widest text-purple-400 bg-purple-400/10 border border-purple-400/30 px-2 py-0.5 rounded-md">
+                        RUNG HAPTIC
+                    </span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-purple-400 bg-purple-400/10 px-2.5 py-1 rounded-md">Phụ Kiện</span>
+                        <div class="h-48 my-4 flex items-center justify-center overflow-hidden rounded-xl bg-darkBg/60 p-3 relative cursor-pointer" onclick="quickView('Tay Cầm 8BitDo / DualSense', '1.190.000đ', '1.450.000đ', 'OIP_(4).webp', 'Kết nối đa nền tảng Bluetooth & 2.4GHz, nút cơ chống drift Hall Effect, phản hồi lực chân thực.', 'Cảm giác bấm cực kỳ đầm tay')">
+                            <img src="OIP_(4).webp" alt="Tay cầm 8BitDo / DualSense" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300" onerror="this.src='OIP (4).webp'">
+                        </div>
+                        <div class="flex items-center gap-1 text-xs text-yellow-400 mb-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span class="text-gray-400 text-[11px] ml-1">(193 đánh giá)</span>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1 group-hover:text-neonBlue transition-colors">Tay Cầm 8BitDo / DualSense</h3>
+                        <p class="text-xs text-gray-400 mb-3 leading-relaxed">Kết nối đa nền tảng PC/Switch/iOS/Android, cần analog Hall Effect chống trôi, phím Macro tùy chỉnh.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="font-orbitron font-bold text-neonBlue text-lg">1.190.000đ</span>
+                            <span class="text-xs text-gray-500 line-through">1.450.000đ</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-cardBorder">
+                            <button onclick="addToCart('Tay Cầm 8BitDo / DualSense', 1190000, 'OIP_(4).webp')" class="px-2.5 py-2 rounded-lg bg-neonBlue/10 hover:bg-neonBlue text-neonBlue hover:text-black font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm giỏ
+                            </button>
+                            <button onclick="openBuyModal('Tay Cầm 8BitDo / DualSense', '1.190.000đ', 'OIP_(4).webp')" class="px-2.5 py-2 rounded-lg bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase hover:opacity-90 transition-opacity flex items-center justify-center">
+                                Mua ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. Quạt Tản Nhiệt Sò Lạnh RGB -->
+                <div class="product-item accessory p-5 rounded-2xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-all flex flex-col justify-between group relative overflow-hidden" data-name="quat tan nhiet so lanh rgb" data-price="450000">
+                    <span class="absolute top-3 right-3 text-[10px] font-bold font-orbitron uppercase tracking-widest text-neonBlue bg-neonBlue/10 border border-neonBlue/30 px-2 py-0.5 rounded-md">
+                        GIẢM 20°C
+                    </span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-purple-400 bg-purple-400/10 px-2.5 py-1 rounded-md">Phụ Kiện</span>
+                        <div class="h-48 my-4 flex items-center justify-center overflow-hidden rounded-xl bg-darkBg/60 p-3 relative cursor-pointer" onclick="quickView('Quạt Tản Nhiệt Sò Lạnh RGB', '450.000đ', '650.000đ', 'OIP_(5).webp', 'Công nghệ bán dẫn đóng băng hạ nhiệt tức thì 20°C trong 5 giây, đèn LED RGB lập lòe phong cách.', 'Bảo vệ tuổi thọ máy game tối đa')">
+                            <img src="OIP_(5).webp" alt="Quạt tản nhiệt sò lạnh" class="max-h-full object-contain group-hover:scale-110 transition-transform duration-300" onerror="this.src='OIP (5).webp'">
+                        </div>
+                        <div class="flex items-center gap-1 text-xs text-yellow-400 mb-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                            <span class="text-gray-400 text-[11px] ml-1">(85 đánh giá)</span>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-white text-base mb-1 group-hover:text-neonBlue transition-colors">Quạt Tản Nhiệt Sò Lạnh RGB</h3>
+                        <p class="text-xs text-gray-400 mb-3 leading-relaxed">Công nghệ tản nhiệt bán dẫn hạ nhiệt tức thì 15-20°C, bảo vệ pin và duy trì FPS ổn định tuyệt đối.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="font-orbitron font-bold text-neonBlue text-lg">450.000đ</span>
+                            <span class="text-xs text-gray-500 line-through">650.000đ</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-3 border-t border-cardBorder">
+                            <button onclick="addToCart('Quạt Tản Nhiệt Sò Lạnh RGB', 450000, 'OIP_(5).webp')" class="px-2.5 py-2 rounded-lg bg-neonBlue/10 hover:bg-neonBlue text-neonBlue hover:text-black font-semibold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm giỏ
+                            </button>
+                            <button onclick="openBuyModal('Quạt Tản Nhiệt Sò Lạnh RGB', '450.000đ', 'OIP_(5).webp')" class="px-2.5 py-2 rounded-lg bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase hover:opacity-90 transition-opacity flex items-center justify-center">
+                                Mua ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="noProductFound" class="hidden text-center py-16">
+                <i class="fa-solid fa-gamepad text-5xl text-gray-600 mb-4"></i>
+                <h3 class="font-orbitron font-bold text-white text-lg">Không tìm thấy sản phẩm phù hợp</h3>
+                <p class="text-gray-400 text-xs mt-1">Vui lòng thử từ khóa khác hoặc liên hệ hotline để được đặt hàng riêng!</p>
+                <button onclick="resetFilters()" class="mt-4 px-5 py-2 rounded-xl bg-neonBlue/10 text-neonBlue text-xs font-semibold hover:bg-neonBlue hover:text-black transition-colors">Xem tất cả sản phẩm</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON TABLE SECTION (TẠI SAO CHỌN GAME-ZONE - SOCIAL PROOF & VALUE) -->
+    <section id="so-sanh" class="py-20 bg-darkBg/95 border-b border-cardBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-orbitron font-bold uppercase tracking-widest text-emerald-400 bg-emerald-400/10 px-3.5 py-1.5 rounded-full border border-emerald-400/20">
+                    Bảo Đảm Quyền Lợi Game Thủ
+                </span>
+                <h2 class="font-orbitron text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider mt-3 mb-3">
+                    VÌ SAO NÊN CHỌN <span class="text-neonBlue glow-text">GAME-ZONE?</span>
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base">
+                    Sự khác biệt rõ ràng giữa trải nghiệm chuẩn chính hãng tại GAME-ZONE và các cửa hàng trôi nổi trên thị trường.
+                </p>
+            </div>
+
+            <!-- Responsive Comparison Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse rounded-2xl overflow-hidden bg-cardBg border border-cardBorder">
+                    <thead>
+                        <tr class="border-b border-cardBorder text-xs uppercase tracking-wider font-orbitron">
+                            <th class="p-5 text-gray-400 bg-darkBg/50 w-2/5">Tiêu Chí So Sánh</th>
+                            <th class="p-5 text-neonBlue bg-neonBlue/10 border-x border-neonBlue/30 text-center w-3/10 glow-text text-sm">
+                                <i class="fa-solid fa-shield-check mr-1.5"></i> GAME-ZONE
+                            </th>
+                            <th class="p-5 text-gray-400 bg-darkBg/30 text-center w-3/10">
+                                Cửa Hàng Xách Tay Khác
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-cardBorder text-xs sm:text-sm">
+                        <!-- Row 1 -->
+                        <tr class="hover:bg-darkBg/30 transition-colors">
+                            <td class="p-5 font-semibold text-white flex items-center gap-3">
+                                <i class="fa-solid fa-box-check text-neonBlue text-base"></i>
+                                <span>Nguồn gốc &amp; Xuất xứ</span>
+                            </td>
+                            <td class="p-5 bg-neonBlue/5 border-x border-neonBlue/20 text-center font-bold text-white">
+                                <span class="inline-flex items-center gap-1.5 text-emerald-400">
+                                    <i class="fa-solid fa-circle-check"></i> 100% Nguyên seal chính hãng
+                                </span>
+                            </td>
+                            <td class="p-5 text-center text-gray-400">
+                                <span class="inline-flex items-center gap-1.5 text-red-400">
+                                    <i class="fa-solid fa-circle-xmark"></i> Hàng dựng, Refurbished trôi nổi
+                                </span>
+                            </td>
+                        </tr>
+                        <!-- Row 2 -->
+                        <tr class="hover:bg-darkBg/30 transition-colors">
+                            <td class="p-5 font-semibold text-white flex items-center gap-3">
+                                <i class="fa-solid fa-arrows-rotate text-neonBlue text-base"></i>
+                                <span>Chính sách đổi mới</span>
+                            </td>
+                            <td class="p-5 bg-neonBlue/5 border-x border-neonBlue/20 text-center font-bold text-white">
+                                <span class="inline-flex items-center gap-1.5 text-emerald-400">
+                                    <i class="fa-solid fa-circle-check"></i> 1 Đổi 1 trong 30 ngày tận nhà
+                                </span>
+                            </td>
+                            <td class="p-5 text-center text-gray-400">
+                                <span class="inline-flex items-center gap-1.5 text-red-400">
+                                    <i class="fa-solid fa-circle-xmark"></i> Chỉ đổi trong 3-7 ngày, nhiều điều kiện
+                                </span>
+                            </td>
+                        </tr>
+                        <!-- Row 3 -->
+                        <tr class="hover:bg-darkBg/30 transition-colors">
+                            <td class="p-5 font-semibold text-white flex items-center gap-3">
+                                <i class="fa-solid fa-wrench text-neonBlue text-base"></i>
+                                <span>Bảo hành phần cứng</span>
+                            </td>
+                            <td class="p-5 bg-neonBlue/5 border-x border-neonBlue/20 text-center font-bold text-white">
+                                <span class="inline-flex items-center gap-1.5 text-emerald-400">
+                                    <i class="fa-solid fa-circle-check"></i> 12 tháng tại TTBH chính hãng toàn quốc
+                                </span>
+                            </td>
+                            <td class="p-5 text-center text-gray-400">
+                                <span class="inline-flex items-center gap-1.5 text-yellow-400">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> Bảo hành shop, từ chối lỗi nguồn/màn
+                                </span>
+                            </td>
+                        </tr>
+                        <!-- Row 4 -->
+                        <tr class="hover:bg-darkBg/30 transition-colors">
+                            <td class="p-5 font-semibold text-white flex items-center gap-3">
+                                <i class="fa-solid fa-gamepad text-neonBlue text-base"></i>
+                                <span>Cài đặt Game &amp; Tối ưu</span>
+                            </td>
+                            <td class="p-5 bg-neonBlue/5 border-x border-neonBlue/20 text-center font-bold text-white">
+                                <span class="inline-flex items-center gap-1.5 text-emerald-400">
+                                    <i class="fa-solid fa-circle-check"></i> Miễn phí trọn đời (Game AAA + Retro)
+                                </span>
+                            </td>
+                            <td class="p-5 text-center text-gray-400">
+                                <span class="inline-flex items-center gap-1.5 text-red-400">
+                                    <i class="fa-solid fa-circle-xmark"></i> Tính phí từ 200k - 500k/lần
+                                </span>
+                            </td>
+                        </tr>
+                        <!-- Row 5 -->
+                        <tr class="hover:bg-darkBg/30 transition-colors">
+                            <td class="p-5 font-semibold text-white flex items-center gap-3">
+                                <i class="fa-solid fa-truck-bolt text-neonBlue text-base"></i>
+                                <span>Tốc độ giao hàng</span>
+                            </td>
+                            <td class="p-5 bg-neonBlue/5 border-x border-neonBlue/20 text-center font-bold text-white">
+                                <span class="inline-flex items-center gap-1.5 text-emerald-400">
+                                    <i class="fa-solid fa-circle-check"></i> Hỏa tốc 2h nội thành, đồng kiểm khi nhận
+                                </span>
+                            </td>
+                            <td class="p-5 text-center text-gray-400">
+                                <span class="inline-flex items-center gap-1.5 text-gray-400">
+                                    <i class="fa-solid fa-circle-xmark"></i> Chờ 3-5 ngày, không hỗ trợ kiểm tra
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION (ĐÁNH GIÁ KHÁCH HÀNG THỰC TẾ - SOCIAL PROOF) -->
+    <section id="danh-gia" class="py-20 border-b border-cardBorder bg-cardBg/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-orbitron font-bold uppercase tracking-widest text-yellow-400 bg-yellow-400/10 px-3.5 py-1.5 rounded-full border border-yellow-400/20">
+                    Góc Feedback Chân Thật
+                </span>
+                <h2 class="font-orbitron text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider mt-3 mb-3">
+                    GAME THỦ NÓI GÌ VỀ <span class="text-neonBlue glow-text">GAME-ZONE?</span>
+                </h2>
+                <p class="text-gray-400 text-sm">Hơn 5.400+ đánh giá 5 sao từ cộng đồng game thủ trên khắp mọi miền đất nước.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="p-6 rounded-2xl bg-cardBg border border-cardBorder glow-box flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex text-yellow-400 text-sm gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="text-[11px] text-emerald-400 font-semibold bg-emerald-400/10 px-2 py-0.5 rounded">Đã mua ROG Ally X</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-300 italic mb-4 leading-relaxed">
+                            "Đặt chiếc ROG Ally X giao hỏa tốc 2 tiếng đúng giờ luôn! Máy nguyên seal, nhân viên hỗ trợ cài sẵn Cyberpunk 2077 và Black Myth Wukong việt hóa siêu mượt. Pin 80Wh chơi game thỏa thích không sợ tụt pin."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-cardBorder/60">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-neonBlue to-accentBlue flex items-center justify-center text-black font-bold font-orbitron">
+                            HL
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Hoàng Long</h4>
+                            <p class="text-gray-500 text-xs">Software Engineer - Cầu Giấy, Hà Nội</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="p-6 rounded-2xl bg-cardBg border border-cardBorder glow-box flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex text-yellow-400 text-sm gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="text-[11px] text-emerald-400 font-semibold bg-emerald-400/10 px-2 py-0.5 rounded">Đã mua Steam Deck OLED</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-300 italic mb-4 leading-relaxed">
+                            "Màn hình OLED 90Hz của Steam Deck mua ở GAME-ZONE quá đỉnh. Đội ngũ kỹ thuật hỗ trợ cài plugin việt hóa và Dual Boot Windows cực kỳ nhiệt tình, nhắn tin lúc nửa đêm vẫn có bạn giải đáp. Xứng đáng 5 sao!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-cardBorder/60">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-hotPink flex items-center justify-center text-white font-bold font-orbitron">
+                            MA
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Minh Anh</h4>
+                            <p class="text-gray-500 text-xs">Graphic Designer - Quận 1, TP.HCM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="p-6 rounded-2xl bg-cardBg border border-cardBorder glow-box flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex text-yellow-400 text-sm gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <span class="text-[11px] text-emerald-400 font-semibold bg-emerald-400/10 px-2 py-0.5 rounded">Đã mua Miyoo Mini Plus</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-300 italic mb-4 leading-relaxed">
+                            "Mua chiếc Miyoo Mini Plus để ôn lại tuổi thơ chơi Pokemon và Đấu Trường Thú. Máy nhỏ gọn nhét túi áo mang đi đâu cũng tiện, shop nạp sẵn cả kho game retro không thiếu trò gì. Giá quá tốt so với chất lượng."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-cardBorder/60">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-black font-bold font-orbitron">
+                            TK
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Tuấn Kiệt</h4>
+                            <p class="text-gray-500 text-xs">Streamer - Hải Phòng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & FAST ORDER FORM SECTION (FORM FRICTION REDUCTION) -->
+    <section id="lien-he" class="py-20 bg-darkBg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Info Left -->
+                <div class="space-y-6">
+                    <div>
+                        <span class="text-xs font-orbitron font-bold uppercase tracking-widest text-neonBlue bg-neonBlue/10 px-3.5 py-1.5 rounded-full border border-neonBlue/20">
+                            Kết Nối Trực Tiếp
+                        </span>
+                        <h2 class="font-orbitron text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider mt-3">
+                            LIÊN HỆ VỚI <span class="text-neonBlue glow-text">GAME-ZONE</span>
+                        </h2>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Bạn cần trải nghiệm trực tiếp máy chơi game hoặc cần tư vấn cấu hình phù hợp với tựa game yêu thích? Hãy liên hệ ngay với đội ngũ chuyên viên của chúng tôi!
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-colors">
+                            <div class="p-3.5 rounded-xl bg-neonBlue/10 text-neonBlue text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-orbitron font-bold text-white text-sm">Hệ Thống Showroom Trải Nghiệm</h4>
+                                <p class="text-gray-300 text-xs mt-1">📍 Showroom 1: 123 Đường Cầu Giấy, Quận Cầu Giấy, Hà Nội</p>
+                                <p class="text-gray-300 text-xs mt-1">📍 Showroom 2: 456 Đường Gaming, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</p>
+                                <p class="text-[11px] text-gray-500 mt-1">Mở cửa: 08:30 - 21:30 (Tất cả các ngày trong tuần)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-colors">
+                            <div class="p-3.5 rounded-xl bg-neonBlue/10 text-neonBlue text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-orbitron font-bold text-white text-sm">Hotline Bán Hàng &amp; Kỹ Thuật</h4>
+                                <p class="text-neonBlue font-orbitron font-bold text-base mt-1">1900-GAMEZONE (1900-4263)</p>
+                                <p class="text-gray-400 text-xs mt-0.5">Zalo Kỹ thuật &amp; Hỗ trợ cài game: <strong>0988.123.456</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-cardBg border border-cardBorder hover:border-neonBlue transition-colors">
+                            <div class="p-3.5 rounded-xl bg-neonBlue/10 text-neonBlue text-xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-orbitron font-bold text-white text-sm">Email Hỗ Trợ &amp; Doanh Nghiệp</h4>
+                                <p class="text-gray-300 text-xs mt-1">support@gamezone.vn | sales@gamezone.vn</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Badges & Trust -->
+                    <div class="pt-4">
+                        <span class="text-xs uppercase text-gray-500 font-semibold tracking-wider block mb-2">Hỗ trợ các phương thức thanh toán an toàn:</span>
+                        <div class="flex flex-wrap items-center gap-3 text-2xl text-gray-400">
+                            <i class="fa-brands fa-cc-visa hover:text-white transition-colors" title="Visa"></i>
+                            <i class="fa-brands fa-cc-mastercard hover:text-white transition-colors" title="Mastercard"></i>
+                            <i class="fa-solid fa-qrcode hover:text-white transition-colors" title="VietQR"></i>
+                            <i class="fa-solid fa-money-bill-wave hover:text-white transition-colors" title="COD Tiền mặt"></i>
+                            <span class="text-xs bg-neonBlue/10 text-neonBlue px-2.5 py-1 rounded font-semibold">Trả góp 0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Right (Form Chốt Đơn & Tư Vấn Nhanh) -->
+                <div class="p-6 sm:p-8 rounded-2xl bg-cardBg border border-cardBorder glow-box relative">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h3 class="font-orbitron font-bold text-xl text-white">ĐĂNG KÝ TƯ VẤN &amp; ĐẶT MUA</h3>
+                            <p class="text-xs text-gray-400 mt-1">Để lại thông tin, chuyên viên GAME-ZONE sẽ gọi lại trong 5 phút</p>
+                        </div>
+                        <span class="p-2.5 rounded-xl bg-neonBlue/10 text-neonBlue text-lg">
+                            <i class="fa-solid fa-bolt"></i>
+                        </span>
+                    </div>
+
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
+                                Họ &amp; Tên <span class="text-hotPink">*</span>
+                            </label>
+                            <input type="text" id="custName" required placeholder="Ví dụ: Nguyễn Văn An" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-neonBlue transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
+                                Số Điện Thoại / Zalo <span class="text-hotPink">*</span>
+                            </label>
+                            <input type="tel" id="custPhone" required pattern="[0-9]{10,11}" placeholder="Ví dụ: 0901234567" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-neonBlue transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
+                                Địa Chỉ Nhận Hàng (Nếu muốn giao tận nhà)
+                            </label>
+                            <input type="text" id="custAddress" placeholder="Ví dụ: Số 25 ngõ 10 đường Cầu Giấy, Hà Nội" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-neonBlue transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
+                                Sản Phẩm Quan Tâm
+                            </label>
+                            <select id="custProduct" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-gray-200 text-sm focus:outline-none focus:border-neonBlue transition-colors">
+                                <option value="ASUS ROG Ally X">ASUS ROG Ally X (23.990.000đ)</option>
+                                <option value="Valve Steam Deck OLED">Valve Steam Deck OLED (17.890.000đ)</option>
+                                <option value="Lenovo Legion Go">Lenovo Legion Go (18.990.000đ)</option>
+                                <option value="Nintendo Switch OLED">Nintendo Switch OLED (7.490.000đ)</option>
+                                <option value="Nintendo Switch Lite / V2">Nintendo Switch Lite / V2 (4.290.000đ)</option>
+                                <option value="Miyoo Mini Plus / Powkiddy">Miyoo Mini Plus (1.250.000đ)</option>
+                                <option value="Dock Sạc Đa Năng 6-in-1">Dock Sạc Đa Năng 6-in-1 (890.000đ)</option>
+                                <option value="Thẻ Nhớ SanDisk/Samsung">Thẻ Nhớ MicroSD SanDisk/Samsung (650.000đ)</option>
+                                <option value="Tay Cầm 8BitDo / DualSense">Tay Cầm 8BitDo / DualSense (1.190.000đ)</option>
+                                <option value="Quạt Tản Nhiệt Sò Lạnh RGB">Quạt Tản Nhiệt Sò Lạnh RGB (450.000đ)</option>
+                            </select>
+                        </div>
+
+                        <!-- Combo Selection Checkbox / Radio -->
+                        <div class="p-3 rounded-xl bg-darkBg/60 border border-cardBorder/80 space-y-2">
+                            <span class="text-[11px] font-bold text-neonBlue uppercase tracking-wider block">Gói Khuyến Mãi Đi Kèm (Chọn 1):</span>
+                            <label class="flex items-center gap-2.5 text-xs text-gray-300 cursor-pointer">
+                                <input type="radio" name="comboOption" value="Tặng Thẻ Nhớ 128GB + Cường Lực (0đ)" checked class="text-neonBlue focus:ring-0">
+                                <span>Combo 1: Tặng bao đựng chống sốc + Dán cường lực (<strong class="text-emerald-400">0đ</strong>)</span>
+                            </label>
+                            <label class="flex items-center gap-2.5 text-xs text-gray-300 cursor-pointer">
+                                <input type="radio" name="comboOption" value="Giảm 300k khi mua kèm Dock sạc" class="text-neonBlue focus:ring-0">
+                                <span>Combo 2: Mua kèm Dock sạc 6-in-1 giảm ngay <strong class="text-yellow-400">300.000đ</strong></span>
+                            </label>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1.5">
+                                Ghi Chú Hoặc Câu Hỏi Cần Hỗ Trợ
+                            </label>
+                            <textarea id="custNote" rows="2" placeholder="Ví dụ: Cần cài sẵn game Black Myth Wukong, giao buổi tối sau 18h..." class="w-full px-4 py-3 rounded-xl bg-darkBg border border-cardBorder text-white text-sm focus:outline-none focus:border-neonBlue transition-colors"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-black text-sm uppercase tracking-wider hover:opacity-95 hover:shadow-[0_0_25px_rgba(0,229,255,0.4)] transition-all">
+                            Gửi Đăng Ký Tư Vấn / Đặt Mua Ngay
+                        </button>
+                        <p class="text-center text-[11px] text-gray-500">
+                            🔒 Thông tin của bạn được cam kết bảo mật 100% theo chính sách bảo mật GAME-ZONE.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & TRUST SIGNALS -->
+    <footer class="mt-auto bg-[#07090D] border-t border-cardBorder pt-12 pb-8 text-xs text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+                <!-- Col 1 -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad text-2xl text-neonBlue"></i>
+                        <span class="font-orbitron font-extrabold text-xl tracking-wider text-white">GAME<span class="text-neonBlue glow-text">-ZONE</span></span>
+                    </div>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Hệ thống bán lẻ máy chơi game PC Handheld, Console và phụ kiện gaming cao cấp hàng đầu Việt Nam. Nơi đam mê game biến thành trải nghiệm bất tận.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2 text-lg">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-cardBg border border-cardBorder flex items-center justify-center text-gray-400 hover:text-neonBlue hover:border-neonBlue transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-cardBg border border-cardBorder flex items-center justify-center text-gray-400 hover:text-neonBlue hover:border-neonBlue transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-cardBg border border-cardBorder flex items-center justify-center text-gray-400 hover:text-neonBlue hover:border-neonBlue transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-cardBg border border-cardBorder flex items-center justify-center text-gray-400 hover:text-neonBlue hover:border-neonBlue transition-colors"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="space-y-2">
+                    <h4 class="font-orbitron font-bold text-white text-xs uppercase tracking-wider mb-3">Sản Phẩm Nổi Bật</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#danh-muc" onclick="filterProducts('pc')" class="hover:text-neonBlue transition-colors">ASUS ROG Ally X 2026</a></li>
+                        <li><a href="#danh-muc" onclick="filterProducts('pc')" class="hover:text-neonBlue transition-colors">Valve Steam Deck OLED</a></li>
+                        <li><a href="#danh-muc" onclick="filterProducts('pc')" class="hover:text-neonBlue transition-colors">Lenovo Legion Go</a></li>
+                        <li><a href="#danh-muc" onclick="filterProducts('console')" class="hover:text-neonBlue transition-colors">Nintendo Switch OLED / Lite</a></li>
+                        <li><a href="#danh-muc" onclick="filterProducts('console')" class="hover:text-neonBlue transition-colors">Máy Retro Miyoo Mini Plus</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div class="space-y-2">
+                    <h4 class="font-orbitron font-bold text-white text-xs uppercase tracking-wider mb-3">Chính Sách &amp; Hỗ Trợ</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#so-sanh" class="hover:text-neonBlue transition-colors">Chính sách bảo hành 1 đổi 1 trong 30 ngày</a></li>
+                        <li><a href="#so-sanh" class="hover:text-neonBlue transition-colors">Chính sách vận chuyển hỏa tốc 2h</a></li>
+                        <li><a href="#so-sanh" class="hover:text-neonBlue transition-colors">Hướng dẫn trả góp 0% lãi suất</a></li>
+                        <li><a href="#lien-he" class="hover:text-neonBlue transition-colors">Dịch vụ cài đặt game trọn đời</a></li>
+                        <li><a href="#lien-he" class="hover:text-neonBlue transition-colors">Chính sách bảo mật thông tin khách hàng</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div class="space-y-3">
+                    <h4 class="font-orbitron font-bold text-white text-xs uppercase tracking-wider mb-3">Đăng Ký Nhận Bản Tin</h4>
+                    <p class="text-xs text-gray-400">Nhận ngay voucher giảm 200.000đ khi đăng ký nhận thông tin khuyến mãi mới nhất.</p>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Email của bạn..." class="bg-darkBg border border-cardBorder rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-neonBlue flex-1">
+                        <button onclick="handleSubscribeNewsletter()" class="px-3.5 py-2 rounded-xl bg-neonBlue text-black font-bold text-xs hover:bg-neonBlue/80 transition-colors">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-2 text-emerald-400 text-xs font-semibold pt-1">
+                        <i class="fa-solid fa-circle-check"></i> Đã có hơn 12.000+ người đăng ký
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 border-t border-cardBorder flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-500 text-[11px]">
+                <p>© 2026 GAME-ZONE Vietnam. Tất cả quyền được bảo lưu. Giấy phép kinh doanh số: 0108924824 cấp bởi Sở KH&ĐT TP. Hà Nội.</p>
+                <p>Designed with <i class="fa-solid fa-heart text-hotPink"></i> for Gamers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY CTA BAR (MOBILE FIRST CRO FEATURE) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-darkBg/95 backdrop-blur-md border-t border-cardBorder p-3 flex items-center justify-between gap-3 shadow-[0_-5px_20px_rgba(0,0,0,0.6)]">
+        <div class="flex items-center gap-3">
+            <button onclick="toggleCartDrawer(true)" class="relative p-2 rounded-xl bg-cardBg border border-cardBorder text-gray-200">
+                <i class="fa-solid fa-cart-shopping text-base"></i>
+                <span id="mobileCartCount" class="absolute -top-1.5 -right-1.5 bg-neonBlue text-black font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+            </button>
+            <a href="tel:19004263" class="p-2 rounded-xl bg-cardBg border border-cardBorder text-neonBlue">
+                <i class="fa-solid fa-phone text-base"></i>
+            </a>
+        </div>
+        <a href="#lien-he" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-extrabold text-xs uppercase tracking-wider text-center shadow-[0_0_15px_rgba(0,229,255,0.4)]">
+            🔥 ĐẶT MUA NGAY - GIẢM 25%
+        </a>
+    </div>
+
+    <!-- SLIDE-OVER SHOPPING CART DRAWER -->
+    <div id="cartDrawerBackdrop" onclick="toggleCartDrawer(false)" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm transition-opacity"></div>
+    <div id="cartDrawer" class="fixed top-0 right-0 bottom-0 w-full sm:w-96 z-50 bg-cardBg border-l border-cardBorder shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Drawer Header -->
+        <div class="p-5 border-b border-cardBorder flex items-center justify-between bg-darkBg">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping text-neonBlue"></i>
+                <h3 class="font-orbitron font-bold text-white text-base">GIỎ HÀNG CỦA BẠN</h3>
+            </div>
+            <button onclick="toggleCartDrawer(false)" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-cardBg transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Free Ship Bar inside Cart -->
+        <div class="p-3 bg-neonBlue/10 border-b border-neonBlue/20 text-xs text-neonBlue flex items-center gap-2">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>Đơn hàng trên 1.000.000đ được <strong>FREESHIP HỎA TỐC 2H</strong>!</span>
+        </div>
+
+        <!-- Drawer Body: Cart Items List -->
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 space-y-3">
+            <!-- Dynamically populated or empty -->
+        </div>
+
+        <!-- Drawer Footer: Subtotal & Checkout -->
+        <div class="p-5 border-t border-cardBorder bg-darkBg space-y-4">
+            <div class="flex items-center justify-between text-xs text-gray-400">
+                <span>Tạm tính:</span>
+                <span id="cartSubtotal" class="font-orbitron font-bold text-white text-sm">0đ</span>
+            </div>
+            <div class="flex items-center justify-between text-xs text-gray-400">
+                <span>Phí vận chuyển:</span>
+                <span class="text-emerald-400 font-semibold">MIỄN PHÍ</span>
+            </div>
+            <div class="pt-2 border-t border-cardBorder flex items-center justify-between">
+                <span class="font-bold text-white text-sm">Tổng thanh toán:</span>
+                <span id="cartTotal" class="font-orbitron font-extrabold text-neonBlue text-lg glow-text">0đ</span>
+            </div>
+
+            <button onclick="checkoutFromCart()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase tracking-wider hover:opacity-90 shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all">
+                Tiến Hành Đặt Hàng Ngay
+            </button>
+            <button onclick="clearCart()" class="w-full py-2 text-center text-xs text-gray-500 hover:text-gray-300">
+                Xóa tất cả giỏ hàng
+            </button>
+        </div>
+    </div>
+
+    <!-- QUICK BUY MODAL (POPUP CHỐT ĐƠN SIÊU TỐC) -->
+    <div id="buyModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+        <div class="w-full max-w-lg rounded-2xl bg-cardBg border border-neonBlue/40 p-6 sm:p-8 glow-border shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeBuyModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-darkBg border border-cardBorder p-1 flex items-center justify-center">
+                    <img id="buyModalImg" src="OIP.webp" alt="Thumb" class="max-h-full object-contain">
+                </div>
+                <div>
+                    <span class="text-[10px] uppercase font-bold text-neonBlue tracking-wider">Đặt Mua Nhanh</span>
+                    <h3 id="buyModalTitle" class="font-orbitron font-bold text-white text-base">ASUS ROG Ally X</h3>
+                    <div id="buyModalPrice" class="font-orbitron font-extrabold text-neonBlue text-base">23.990.000đ</div>
+                </div>
+            </div>
+
+            <form onsubmit="handleQuickBuySubmit(event)" class="space-y-3.5">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Họ &amp; Tên <span class="text-hotPink">*</span></label>
+                    <input type="text" id="quickName" required placeholder="Nhập họ và tên..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-xs focus:outline-none focus:border-neonBlue">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Số Điện Thoại Nhận Hàng <span class="text-hotPink">*</span></label>
+                    <input type="tel" id="quickPhone" required pattern="[0-9]{10,11}" placeholder="Nhập số điện thoại..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-xs focus:outline-none focus:border-neonBlue">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Địa Chỉ Nhận Hàng <span class="text-hotPink">*</span></label>
+                    <input type="text" id="quickAddress" required placeholder="Số nhà, tên đường, quận/huyện, tỉnh/thành phố..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-white text-xs focus:outline-none focus:border-neonBlue">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Hình Thức Thanh Toán</label>
+                    <select class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-cardBorder text-gray-200 text-xs focus:outline-none focus:border-neonBlue">
+                        <option>Thanh toán khi nhận hàng (COD - Kiểm tra rồi trả tiền)</option>
+                        <option>Chuyển khoản VietQR nhận ưu đãi giảm thêm 100k</option>
+                        <option>Trả góp 0% qua thẻ tín dụng / CCCD</option>
+                    </select>
+                </div>
+
+                <div class="p-3 rounded-xl bg-darkBg/70 border border-cardBorder text-[11px] text-gray-400 space-y-1">
+                    <div class="flex items-center gap-1.5 text-emerald-400 font-semibold">
+                        <i class="fa-solid fa-shield-check"></i> Cam kết chính hãng 100% - Bảo hành 12 tháng
+                    </div>
+                    <p>Miễn phí giao hàng hỏa tốc trong 2 giờ nội thành.</p>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase tracking-wider hover:opacity-90 shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all">
+                    Xác Nhận Đặt Mua
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- QUICK VIEW DETAIL MODAL -->
+    <div id="quickViewModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+        <div class="w-full max-w-2xl rounded-2xl bg-cardBg border border-neonBlue/40 p-6 sm:p-8 glow-border shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="grid sm:grid-cols-2 gap-6 items-center">
+                <div class="h-60 rounded-xl bg-darkBg/70 p-4 flex items-center justify-center border border-cardBorder">
+                    <img id="qvImage" src="" alt="Detail" class="max-h-full object-contain">
+                </div>
+                <div class="space-y-3">
+                    <span id="qvTag" class="text-[10px] font-orbitron font-bold uppercase tracking-wider text-neonBlue bg-neonBlue/10 px-2 py-0.5 rounded">
+                        CHI TIẾT THIẾT BỊ
+                    </span>
+                    <h3 id="qvTitle" class="font-orbitron font-bold text-white text-xl">Sản Phẩm</h3>
+                    <div class="flex items-baseline gap-2">
+                        <span id="qvPrice" class="font-orbitron font-extrabold text-neonBlue text-xl glow-text">0đ</span>
+                        <span id="qvOldPrice" class="text-xs text-gray-500 line-through">0đ</span>
+                    </div>
+                    <p id="qvDesc" class="text-xs text-gray-300 leading-relaxed">Mô tả sản phẩm</p>
+                    <div class="pt-3 border-t border-cardBorder space-y-2 text-xs">
+                        <div class="flex items-center gap-2 text-emerald-400">
+                            <i class="fa-solid fa-circle-check"></i> 1 Đổi 1 trong 30 ngày
+                        </div>
+                        <div class="flex items-center gap-2 text-emerald-400">
+                            <i class="fa-solid fa-circle-check"></i> Cài sẵn kho game bản quyền miễn phí
+                        </div>
+                    </div>
+                    <div class="pt-2 flex gap-2">
+                        <button id="qvAddToCartBtn" class="flex-1 py-2.5 rounded-xl bg-neonBlue/10 hover:bg-neonBlue text-neonBlue hover:text-black font-semibold text-xs transition-colors">
+                            Thêm vào giỏ
+                        </button>
+                        <button id="qvBuyNowBtn" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase hover:opacity-90 transition-opacity">
+                            Mua ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORDER SUCCESS CONFIRMATION MODAL (POPUP CẢM ƠN CHUẨN CRO) -->
+    <div id="successModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+        <div class="w-full max-w-md rounded-3xl bg-cardBg border border-neonBlue p-8 glow-border text-center shadow-2xl relative">
+            <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-400/40 flex items-center justify-center mx-auto text-3xl mb-4 shadow-[0_0_20px_rgba(52,211,153,0.4)]">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <span class="text-[10px] font-orbitron font-bold uppercase tracking-widest text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full">
+                ĐẶT HÀNG THÀNH CÔNG
+            </span>
+            <h3 class="font-orbitron font-black text-2xl text-white mt-3 mb-2">
+                CẢM ƠN QUÝ KHÁCH!
+            </h3>
+            <p class="text-xs text-gray-300 mb-4 leading-relaxed">
+                Đơn hàng của bạn đã được chuyển đến hệ thống GAME-ZONE. Chuyên viên CSKH sẽ liên hệ qua điện thoại hoặc Zalo trong vòng <strong class="text-neonBlue">5 - 15 phút</strong> để xác nhận và gửi kèm quà tặng!
+            </p>
+            
+            <div class="p-4 rounded-xl bg-darkBg border border-cardBorder text-left space-y-2 text-xs mb-6">
+                <div class="flex justify-between text-gray-400">
+                    <span>Mã đơn hàng:</span>
+                    <span id="successOrderId" class="font-orbitron font-bold text-neonBlue">#GZ-92817</span>
+                </div>
+                <div class="flex justify-between text-gray-400">
+                    <span>Khách hàng:</span>
+                    <span id="successCustomer" class="font-semibold text-white">Nguyễn Văn An</span>
+                </div>
+                <div class="flex justify-between text-gray-400">
+                    <span>Số điện thoại:</span>
+                    <span id="successPhone" class="font-semibold text-white">0901234567</span>
+                </div>
+                <div class="flex justify-between text-gray-400">
+                    <span>Dự kiến nhận hàng:</span>
+                    <span class="text-yellow-400 font-semibold">Giao hỏa tốc trong 2 giờ</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <button onclick="closeSuccessModal()" class="w-full py-3 rounded-xl bg-gradient-to-r from-accentBlue to-neonBlue text-black font-orbitron font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity">
+                    Tiếp Tục Mua Sắm
+                </button>
+                <a href="https://zalo.me" target="_blank" class="w-full py-2.5 rounded-xl bg-darkBg border border-cardBorder hover:border-neonBlue text-gray-300 hover:text-white text-xs font-semibold transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-comment-dots text-neonBlue"></i> Chat Zalo Hỗ Trợ 24/7
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toastContainer" class="fixed top-24 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- JAVASCRIPT FOR DYNAMIC FUNCTIONALITY -->
+    <script>
+        // Shopping Cart State
+        let cart = [];
+
+        // Add to Cart
+        function addToCart(productName, price, img) {
+            const existing = cart.find(item => item.name === productName);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    img: img,
+                    qty: 1
+                });
+            }
+            updateCartUI();
+            showToast(`Đã thêm "${productName}" vào giỏ hàng!`, 'success');
+        }
+
+        // Remove item from Cart
+        function removeFromCart(index) {
+            const item = cart[index];
+            cart.splice(index, 1);
+            updateCartUI();
+            showToast(`Đã xóa "${item.name}" khỏi giỏ hàng.`, 'info');
+        }
+
+        // Change quantity in Cart
+        function updateCartQty(index, change) {
+            if (cart[index]) {
+                cart[index].qty += change;
+                if (cart[index].qty <= 0) {
+                    removeFromCart(index);
+                } else {
+                    updateCartUI();
+                }
+            }
+        }
+
+        // Clear Cart
+        function clearCart() {
+            if (cart.length === 0) return;
+            cart = [];
+            updateCartUI();
+            showToast('Giỏ hàng đã được làm trống.', 'info');
+        }
+
+        // Format Currency in VND
+        function formatVND(amount) {
+            return new Intl.NumberFormat('vi-VN').format(amount) + 'đ';
+        }
+
+        // Update Cart UI components
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            // Update header & mobile badges
+            const cartCountEl = document.getElementById('cartCount');
+            if (cartCountEl) cartCountEl.innerText = totalCount;
+            const mobileCartCountEl = document.getElementById('mobileCartCount');
+            if (mobileCartCountEl) mobileCartCountEl.innerText = totalCount;
+
+            // Update drawer totals
+            const subtotalEl = document.getElementById('cartSubtotal');
+            if (subtotalEl) subtotalEl.innerText = formatVND(subtotal);
+            const totalEl = document.getElementById('cartTotal');
+            if (totalEl) totalEl.innerText = formatVND(subtotal);
+
+            // Populate items list
+            const container = document.getElementById('cartItemsContainer');
+            if (!container) return;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-500">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3 text-gray-600"></i>
+                        <p class="text-xs">Giỏ hàng của bạn đang trống</p>
+                        <button onclick="toggleCartDrawer(false)" class="mt-3 px-4 py-2 rounded-lg bg-neonBlue/10 text-neonBlue text-xs font-semibold hover:bg-neonBlue hover:text-black transition-colors">
+                            Khám phá sản phẩm
+                        </button>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = cart.map((item, idx) => `
+                    <div class="p-3 rounded-xl bg-darkBg border border-cardBorder flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-lg bg-cardBg p-1 flex items-center justify-center shrink-0 border border-cardBorder/50">
+                            <img src="${item.img}" alt="${item.name}" class="max-h-full object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'50\\' height=\\'50\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%23131822\\'/></svg>'">
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-white text-xs truncate">${item.name}</h4>
+                            <span class="text-neonBlue text-xs font-orbitron font-semibold">${formatVND(item.price)}</span>
+                            <div class="flex items-center gap-2 mt-1">
+                                <button onclick="updateCartQty(${idx}, -1)" class="w-5 h-5 rounded bg-cardBg border border-cardBorder text-gray-300 hover:text-white flex items-center justify-center text-xs">-</button>
+                                <span class="text-xs font-bold text-white">${item.qty}</span>
+                                <button onclick="updateCartQty(${idx}, 1)" class="w-5 h-5 rounded bg-cardBg border border-cardBorder text-gray-300 hover:text-white flex items-center justify-center text-xs">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${idx})" class="text-gray-500 hover:text-hotPink p-1 text-xs">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Toggle Cart Drawer
+        function toggleCartDrawer(open) {
+            const drawer = document.getElementById('cartDrawer');
+            const backdrop = document.getElementById('cartDrawerBackdrop');
+            if (open) {
+                backdrop.classList.remove('hidden');
+                setTimeout(() => {
+                    drawer.classList.remove('translate-x-full');
+                }, 10);
+            } else {
+                drawer.classList.add('translate-x-full');
+                setTimeout(() => {
+                    backdrop.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Checkout from Cart
+        function checkoutFromCart() {
+            if (cart.length === 0) {
+                showToast('Giỏ hàng trống! Hãy chọn ít nhất 1 sản phẩm.', 'warning');
+                return;
+            }
+            toggleCartDrawer(false);
+            // Pre-select product in contact form or open quick buy
+            const custProduct = document.getElementById('custProduct');
+            if (custProduct) {
+                custProduct.value = cart[0].name;
+            }
+            const noteEl = document.getElementById('custNote');
+            if (noteEl) {
+                noteEl.value = 'Đặt các sản phẩm trong giỏ: ' + cart.map(i => `${i.name} (x${i.qty})`).join(', ');
+            }
+            // Scroll to order form
+            document.getElementById('lien-he').scrollIntoView({ behavior: 'smooth' });
+            showToast('Vui lòng hoàn tất thông tin nhận hàng bên dưới!', 'info');
+        }
+
+        // Category Filter Products
+        function filterProducts(category, btnElement) {
+            // Update Active Tab Button
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('border-neonBlue', 'text-neonBlue', 'shadow-[0_0_12px_rgba(0,229,255,0.25)]');
+                btn.classList.add('border-cardBorder', 'text-gray-400');
+            });
+            if (btnElement) {
+                btnElement.classList.remove('border-cardBorder', 'text-gray-400');
+                btnElement.classList.add('border-neonBlue', 'text-neonBlue', 'shadow-[0_0_12px_rgba(0,229,255,0.25)]');
+            }
+
+            // Filter Product Items
+            const items = document.querySelectorAll('.product-item');
+            let visibleCount = 0;
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            const emptyState = document.getElementById('noProductFound');
+            if (emptyState) {
+                emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        }
+
+        // Live Product Search
+        function searchProducts(query) {
+            const clearBtn = document.getElementById('clearSearchBtn');
+            if (clearBtn) {
+                clearBtn.style.display = query.trim() ? 'block' : 'none';
+            }
+            const cleanQuery = query.toLowerCase().trim();
+            const items = document.querySelectorAll('.product-item');
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                const name = (item.getAttribute('data-name') || '').toLowerCase();
+                const text = item.innerText.toLowerCase();
+                if (!cleanQuery || name.includes(cleanQuery) || text.includes(cleanQuery)) {
+                    item.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            const emptyState = document.getElementById('noProductFound');
+            if (emptyState) {
+                emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        }
+
+        function clearSearch() {
+            const input = document.getElementById('searchInput');
+            if (input) input.value = '';
+            searchProducts('');
+        }
+
+        function resetFilters() {
+            clearSearch();
+            const allBtn = document.querySelector('.filter-btn');
+            filterProducts('all', allBtn);
+        }
+
+        // Mobile Nav Toggle
+        function toggleMobileNav() {
+            const menu = document.getElementById('mobileNavMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Quick Buy Modal
+        let activeQuickBuyProduct = null;
+        function openBuyModal(productName, priceStr, img) {
+            activeQuickBuyProduct = { name: productName, priceStr: priceStr };
+            document.getElementById('buyModalTitle').innerText = productName;
+            document.getElementById('buyModalPrice').innerText = priceStr;
+            document.getElementById('buyModalImg').src = img;
+            document.getElementById('buyModal').classList.remove('hidden');
+        }
+
+        function closeBuyModal() {
+            document.getElementById('buyModal').classList.add('hidden');
+        }
+
+        function handleQuickBuySubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('quickName').value;
+            const phone = document.getElementById('quickPhone').value;
+            closeBuyModal();
+
+            // Show Confirmation Modal
+            showOrderSuccessModal(name, phone);
+        }
+
+        // Main Contact & Consultation Form Submit
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            showOrderSuccessModal(name, phone);
+            document.getElementById('contactForm').reset();
+        }
+
+        // Show Success Modal (Popup Cảm Ơn CRO)
+        function showOrderSuccessModal(name, phone) {
+            const randId = '#GZ-' + Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('successOrderId').innerText = randId;
+            document.getElementById('successCustomer').innerText = name || 'Khách hàng VIP';
+            document.getElementById('successPhone').innerText = phone || 'Chưa cập nhật';
+            document.getElementById('successModal').classList.remove('hidden');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+
+        // Quick View Detail Modal
+        function quickView(title, price, oldPrice, img, desc, tag) {
+            document.getElementById('qvTitle').innerText = title;
+            document.getElementById('qvPrice').innerText = price;
+            document.getElementById('qvOldPrice').innerText = oldPrice;
+            document.getElementById('qvImage').src = img;
+            document.getElementById('qvDesc').innerText = desc;
+            document.getElementById('qvTag').innerText = tag || 'CHI TIẾT THIẾT BỊ';
+
+            // Connect action buttons
+            const addBtn = document.getElementById('qvAddToCartBtn');
+            addBtn.onclick = () => {
+                const numericPrice = parseInt(price.replace(/[^0-9]/g, '')) || 0;
+                addToCart(title, numericPrice, img);
+                closeQuickView();
+            };
+
+            const buyBtn = document.getElementById('qvBuyNowBtn');
+            buyBtn.onclick = () => {
+                closeQuickView();
+                openBuyModal(title, price, img);
+            };
+
+            document.getElementById('quickViewModal').classList.remove('hidden');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.add('hidden');
+        }
+
+        // Copy Voucher Code
+        function copyVoucher(code) {
+            navigator.clipboard.writeText(code).then(() => {
+                showToast(`Đã sao chép mã voucher "${code}"!`, 'success');
+            }).catch(() => {
+                showToast(`Mã voucher: ${code}`, 'info');
+            });
+        }
+
+        function handleSubscribeNewsletter() {
+            showToast('Cảm ơn bạn đã đăng ký nhận tin! Mã giảm 200k đã được gửi vào hòm thư.', 'success');
+        }
+
+        // Toast System
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+
+            const toast = document.createElement('div');
+            toast.className = `pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-xl text-xs font-semibold backdrop-blur-md border transition-all duration-300 transform translate-y-2 opacity-0 ${
+                type === 'success' ? 'bg-cardBg/95 text-emerald-400 border-emerald-500/50' :
+                type === 'warning' ? 'bg-cardBg/95 text-yellow-400 border-yellow-500/50' :
+                'bg-cardBg/95 text-neonBlue border-neonBlue/50'
+            }`;
+
+            const iconClass = type === 'success' ? 'fa-circle-check' :
+                             type === 'warning' ? 'fa-triangle-exclamation' : 'fa-circle-info';
+
+            toast.innerHTML = `
+                <i class="fa-solid ${iconClass} text-sm"></i>
+                <span class="text-white">${message}</span>
+            `;
+
+            container.appendChild(toast);
+
+            // Animate in
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            // Animate out & remove
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        // Flash Sale Countdown Timer Logic
+        function startCountdown() {
+            let hours = 8, minutes = 42, seconds = 19;
+            setInterval(() => {
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                        if (hours < 0) {
+                            hours = 23;
+                        }
+                    }
+                }
+                const hEl = document.getElementById('timerHours');
+                const mEl = document.getElementById('timerMinutes');
+                const sEl = document.getElementById('timerSeconds');
+                if (hEl) hEl.innerText = hours.toString().padStart(2, '0');
+                if (mEl) mEl.innerText = minutes.toString().padStart(2, '0');
+                if (sEl) sEl.innerText = seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            startCountdown();
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>
